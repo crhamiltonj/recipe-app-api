@@ -14,7 +14,7 @@ INGREDIENTS_URL = reverse("recipe:ingredient-list")
 
 
 class PublicIngrdientApiTests(TestCase):
-    """Test the publicly available ingrdients API"""
+    """Test the publicly available ingredients API"""
 
     def setUp(self):
         self.client = APIClient()
@@ -68,12 +68,11 @@ class PrivateIngredientsApiTest(TestCase):
 
     def test_create_ingredient_successful(self):
         """Test create a new ingredient"""
-        payload = {'name': 'Cabbage'}
+        payload = {"name": "Cabbage"}
         self.client.post(INGREDIENTS_URL, payload)
 
         exists = Ingredient.objects.filter(
-            user=self.user,
-            name=payload['name']
+            user=self.user, name=payload["name"]
         ).exists()
 
         self.assertTrue(exists)
@@ -81,7 +80,7 @@ class PrivateIngredientsApiTest(TestCase):
     def test_create_ingredient_invalid(self):
         """Test creating invalid ingredient fails"""
 
-        payload = {'name': ''}
+        payload = {"name": ""}
         res = self.client.post(INGREDIENTS_URL, payload)
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
