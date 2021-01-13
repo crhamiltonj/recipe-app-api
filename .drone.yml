@@ -1,0 +1,11 @@
+---
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: app
+  image: python:3.7-alpine
+  commands:
+    - docker-compose run app sh -c "python manage.py wait_for_db && python manage.py test
+    - flake8
