@@ -176,7 +176,7 @@ class PrivateRecipeApiTest(TestCase):
         new_tag = sample_tag(user=self.user, name='Curry')
 
         payload = {
-            'title': 'Chicken Tikka',
+            'title': 'Chicken  Tikka',
             'tags': [new_tag.id]
         }
         url = detail_url(recipe.id)
