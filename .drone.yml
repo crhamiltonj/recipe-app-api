@@ -8,5 +8,6 @@ steps:
   image: python:3.7-alpine
   commands:
     - pip install docker-compose
-    - docker-compose run app sh -c "python manage.py wait_for_db && python manage.py test
-    - flake8
+    - docker-compose run app sh -c "python manage.py wait_for_db"
+    - docker-compose run app sh -c "python manage.py test"
+    - docker-compose run app sh -c "flake8"
