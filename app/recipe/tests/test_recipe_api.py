@@ -201,5 +201,3 @@ class PrivateRecipeApiTest(TestCase):
 
         url = detail_url(recipe.id)
         self.client.put(url, payload)
-
-        
