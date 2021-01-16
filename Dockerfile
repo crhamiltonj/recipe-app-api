@@ -4,7 +4,7 @@ LABEL maintainer="charlesh.io"
 ENV PYTHON_UNBUFFERED 1
 
 COPY requirements.txt /requirements.txt
-RUN apk add --update --no-cache postgresql-client
+RUN apk add --update --no-cache postgresql-client postgresql-dev
 RUN apk add --update --no-cache --virtual .tmp-build-deps \
     gcc libc-dev linux-headers build-base postgresql-dev
 RUN pip install -r /requirements.txt
