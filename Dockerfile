@@ -7,7 +7,7 @@ COPY requirements.txt /requirements.txt
 RUN apk add --update --no-cache postgresql-client postgresql-dev
 RUN apk add --update --no-cache --virtual .tmp-build-deps \
     gcc libc-dev linux-headers build-base postgresql-dev \
-    python3-dev
+    python3-dev musl-dev
 RUN pip install -r /requirements.txt
 RUN apk del .tmp-build-deps
 RUN mkdir /app
